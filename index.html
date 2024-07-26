@@ -455,16 +455,13 @@
             }
 
             .bento-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+                grid-template-columns: 1fr; /* Single column layout */
+                grid-template-rows: auto; /* Adjust rows automatically */
             }
 
-            .bento-grid a:nth-child(1),
-            .bento-grid a:nth-child(2),
-            .bento-grid a:nth-child(3),
-            .bento-grid a:nth-child(4) {
-                grid-column: span 2;
-                grid-row: span 2;
+            .bento-grid a {
+                grid-column: span 1; /* Span 1 column */
+                grid-row: auto; /* Adjust row span automatically */
             }
         }
     </style>
@@ -604,7 +601,5 @@
             </div>
         </div>
     </footer>
-    
-    
 </body>
 </html>
