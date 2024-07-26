@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growing Juniper</title>
+    <link rel="icon" type="image/x-icon" href="assets/Favicon.webp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-inner {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 26px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 40px;
+        }
+
+        nav ul li.logo {
+            margin-right: auto;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            padding: 10px 15px;
+        }
+
+        nav ul li.chat-button a {
+            background: linear-gradient(135deg, #1D3241 0%, #48535A 100%);
+            color: #fff;
+            border-radius: 200px;
+            font-weight: 500;
+            padding: 12px 24px;
+        }
+
+        nav ul li.hamburger-menu {
+            display: none;
+        }
+
+        .image-banner {
+            width: 100%;
+            height: 600px;
+            background: url("assets/Banner.webp") no-repeat center center;
+            background-size: cover;
+        }
+
+        .banner {
+            width: 100%;
+            background-color: #F5F9FE;
+            padding: 40px 0;
+        }
+
+        .banner-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .banner-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .banner h1 {
+            font-size: 46px;
+            margin-bottom: 20px;
+        }
+
+        .case-study-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .case-study-meta span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .banner p {
+            font-size: 20px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .case-study-content {
+            margin-top: 40px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .case-study-container {
+            flex: 3;
+            padding: 0 20px; /* Adjust as needed */
+        }
+
+        .case-study-content h1,
+        .case-study-content h2,
+        .case-study-content h3,
+        .case-study-content p {
+            padding: 0;
+        }
+
+        .case-study-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .case-study-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #4d4d4d;
+            margin-bottom: 20px;
+        }
+
+        .case-study-content p {
+            font-size: 20px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .case-study-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .image-caption {
+            font-size: 14px;
+            color: #888;
+            text-align: left; /* Left-aligned captions */
+            margin-bottom: 40px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .quote {
+            text-align: left;
+            margin: 80px 0;
+            font-size: 24px;
+            font-weight: 500;
+            color: #333;
+            background: #F5F9FE;
+            border-left: 5px solid #1D3241;
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 40px;
+        }
+
+        .table-of-contents {
+            flex: 1;
+            position: sticky;
+            top: 100px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; /* Updated box shadow */
+            padding: 40px; /* Increased padding */
+            height: 100%;
+            margin-top: 20px;
+        }
+
+        .table-of-contents h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .table-of-contents ul li {
+            margin-bottom: 20px;
+        }
+
+        .table-of-contents ul li a {
+            text-decoration: none;
+            color: #888;
+            font-size: 14px; /* Smaller font size */
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .table-of-contents ul li a:hover {
+            color: #1D3241;
+        }
+
+        footer {
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1); /* Added outline to the footer */
+        }
+
+        .footer-content {
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .footer-content h2 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .footer-button {
+            background-color: #1D3241;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #48535A;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 60px 0;
+        }
+
+        .footer-email {
+            font-size: 16px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            nav ul li {
+                margin-right: 0;
+            }
+
+            nav ul li.logo {
+                margin-right: auto;
+            }
+
+            nav ul li.hamburger-menu {
+                display: block;
+            }
+
+            nav ul li a {
+                display: none;
+            }
+
+            .banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-text {
+                margin-bottom: 20px;
+            }
+
+            .banner img {
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+
+            .case-study-content {
+                flex-direction: column;
+            }
+
+            .case-study-container {
+                padding: 0 20px;
+            }
+
+            .two-columns img {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            footer {
+                padding: 20px 20px;
+            }
+
+            .table-of-contents {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li class="logo"><a href="index.html">Ridwan</a></li>
+                        <li class="desktop-only"><a href="https://docs.google.com/document/d/1-wRVz-llb5nGAWiu1UPl7-VWqBf_VL8gwN9wM1sEEDQ/edit?usp=sharing">Resumé</a></li>
+                        <li class="desktop-only"><a href="https://www.linkedin.com/in/ridwanhoque/">LinkedIn</a></li>
+                        <li class="chat-button"><a href="#">Let’s chat</a></li>
+                        <li class="mobile-only hamburger-menu">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0F0F0F">
+                                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="image-banner"></div>
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h1>Growing Juniper</h1>
+                    <div class="case-study-meta">
+                        <span>Category: E-Commerce</span>
+                        <span>Published: June 25, 2024</span>
+                    </div>
+                    <div class="divider"></div>
+                    <p>Eucalyptus is an Australian health brand launching into the UK market. To boost business expansion with the use of an innovative growth marketing approach. With new customers, the focus shifted towards converting this influx of traffic into loyal users.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="case-study-content">
+                <aside class="table-of-contents">
+                    <h2>Contents</h2>
+                    <ul>
+                        <li><a href="#the-challenge">1. The Challenge</a></li>
+                        <li><a href="#marketing-strategy">2. Marketing Strategy</a></li>
+                        <li><a href="#synthesising-and-designing">3. Synthesising and Designing</a></li>
+                        <li><a href="#mitigating-risk-with-ab-tests">4. Mitigating risk with A/B tests.</a></li>
+                        <li><a href="#results">5. Results</a></li>
+                        <li><a href="#learnings">6. Learnings</a></li>
+                    </ul>
+                </aside>
+                <div class="case-study-container">
+                    <h2 id="the-challenge">1. The Challenge</h2>
+                    <p>The primary task was to create and execute a comprehensive strategy that catered to the varied needs and preferences of the incoming user base, ensuring a seamless and tailored user experience for each segment. We needed to hit the ground running when launching into the new UK market, and developing an understanding of optimising conversion was the top priority.</p>
+
+                    <h2 id="marketing-strategy">2. Marketing Strategy</h2>
+                    <p>Collaborated with marketing to execute a strategy to bring in new customers. Using platforms like Meta and Google. The news of an influx of up to 100,000 new site visitors</p>
+                    <img src="assets/Campaigns.webp" alt="Visitors">
+                    <div class="image-caption">Marketing brought in 100,000 new visitors</div>
+                    <div class="quote"><h3>"How do we get them to convert?"</h3></div>
+                    <p>That one question stuck out. We knew very little about the new users and were reluctant on how long we could maintain the momentum of bringing in new users. We had to work fast.</p>
+                    <p>The team and I quickly understood that there was a new unknown, demographics, and behaviors had to be understood for us to drive conversion. Using Meta’s Ads Tracker and Google's insights we developed a deep understanding of the values of incoming users brought in by different channels and campaigns that had been established. What ads worked and why?</p>
+
+                    <h2 id="synthesising-and-designing">3. Synthesising and Designing</h2>
+                    <p>Amplitude gave insight into where traffic was coming from and a breakdown of sales. It was fundamental to get a sense of what channels brought in the most traffic. With the combination of these two pools of data, our new challenge was to synthesise and identify distinct customer groups - crafting tailored experiences to resonate with each.</p>
+                    <img src="assets/Traffic Breakdown.webp"Amplitude Traffic Breakdown">
+                    <div class="image-caption">Traffic Breakdown using Amplitude and Hotjar</div>
+                    <p>Furthermore, we implemented more tracking parameters such as heatmaps to give confidence in design decisions. With a process of marketing insight, traffic analysis and heatmapping, it gave us an idea to understand customer values. Giving us the groundwork for us to design sites and services. It's important to note that this gave us an idea and not a grounded understanding.</p>
+                    
+                    <h2 id="mitigating-risk-with-ab-tests">4. Mitigating risk with A/B tests.</h2>
+                    <p>Before site deployment, we leveraged A/B testing using Google Optimise. Tests were designed based on perceived risks, with high-traffic sites undergoing more rounds of testing. Embracing a build-test-iterate cycle, we continually refined designs to identify winning variations that resonated with users. We also tested journeys from when users initially visit an ad to the site that they get redirected to. This approach achieved the confidence of senior management.</p>
+                    <img src="assets/Testing Designs.webp" alt="Heatmaps">
+                    <div class="image-caption">Testing Ad>Site pairings</div>
+
+                    <h2 id="results">5. Results</h2>
+                    <p>An average of 2% improvement occurred across 16 sites, with a high of 7% in some. Moreover, successfully implemented an optimisation process that both UK and AUS teams adopted. It wasn’t a ‘finger in the wind’ process anymore - now there was an actual understanding of how to build, learn, and serve our customers. This new process also reduced the turnaround time of site improvement for future projects - from an average of months to now two weeks.</p>
+
+                    <h2 id="learnings">6. Learnings</h2>
+                    <p>A crucial learning was the impact different traffic channels made. Meta users typically valued messaging, whereas Google users seemed to want to buy as soon as possible. This made sense once you understood the journeys of types of users.</p>
+                    <img src="assets/Traffic.webp" alt="Results">
+                    <div class="image-caption">Google brings in high intent users</div>
+                    <p>What this meant was a refocus on how we designed. Meta sites utilised more focus on content design and messaging whereas users coming from Google - were higher intent, which meant accessibility was fundamental for them to convert.</p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2>Ready to start a project?</h2>
+                <a href="#" class="footer-button">Let’s chat</a>
+                <div class="footer-divider"></div>
+                <div class="footer-email-container">
+                    <p class="footer-email">ridwanulhoque98@gmail.com</p>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="https://docs.google.com/document/d/1-wRVz-llb5nGAWiu1UPl7-VWqBf_VL8gwN9wM1sEEDQ/edit?usp=sharing">Resumé</a></li>
+                            <li><a href="https://www.linkedin.com/in/ridwanhoque/">LinkedIn</a></li>
+                            <li><a href="#">Let’s chat</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

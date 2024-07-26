@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Rostering Service Case Study</title>
+    <link rel="icon" type="image/x-icon" href="assets/Favicon.webp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-inner {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 26px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 40px;
+        }
+
+        nav ul li.logo {
+            margin-right: auto;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            padding: 10px 15px;
+        }
+
+        nav ul li.chat-button a {
+            background: linear-gradient(135deg, #1D3241 0%, #48535A 100%);
+            color: #fff;
+            border-radius: 200px;
+            font-weight: 500;
+            padding: 12px 24px;
+        }
+
+        nav ul li.hamburger-menu {
+            display: none;
+        }
+
+        .image-banner {
+            width: 100%;
+            height: 400px;
+            background: url("assets/NH.webp") no-repeat center center;
+            background-size: cover;
+        }
+
+        .banner {
+            width: 100%;
+            background-color: #F5F9FE;
+            padding: 40px 0;
+        }
+
+        .banner-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .banner-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .banner h1 {
+            font-size: 46px;
+            margin-bottom: 20px;
+        }
+
+        .case-study-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .case-study-meta span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .banner p {
+            font-size: 20px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .case-study-content {
+            margin-top: 40px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .case-study-container {
+            flex: 3;
+            padding: 0 20px; /* Adjust as needed */
+        }
+
+        .case-study-content h1,
+        .case-study-content h2,
+        .case-study-content h3,
+        .case-study-content p {
+            padding: 0;
+        }
+
+        .case-study-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .case-study-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #4d4d4d;
+            margin-bottom: 20px;
+        }
+
+        .case-study-content p {
+            font-size: 20px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .case-study-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .image-caption {
+            font-size: 14px;
+            color: #888;
+            text-align: left; /* Left-aligned captions */
+            margin-bottom: 40px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .quote {
+            text-align: left;
+            margin: 80px 0;
+            font-size: 24px;
+            font-weight: 500;
+            color: #333;
+            background: #F5F9FE;
+            border-left: 5px solid #1D3241;
+            padding: 40px;
+        }
+
+        .table-of-contents {
+            flex: 1;
+            position: sticky;
+            top: 100px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; /* Updated box shadow */
+            padding: 40px; /* Increased padding */
+            height: 100%;
+        }
+
+        .table-of-contents h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .table-of-contents ul li {
+            margin-bottom: 20px;
+        }
+
+        .table-of-contents ul li a {
+            text-decoration: none;
+            color: #888;
+            font-size: 14px; /* Smaller font size */
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .table-of-contents ul li a:hover {
+            color: #1D3241;
+        }
+
+        footer {
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1); /* Added outline to the footer */
+        }
+
+        .footer-content {
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .footer-content h2 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .footer-button {
+            background-color: #1D3241;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #48535A;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 60px 0;
+        }
+
+        .footer-email {
+            font-size: 16px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            nav ul li {
+                margin-right: 0;
+            }
+
+            nav ul li.logo {
+                margin-right: auto;
+            }
+
+            nav ul li.hamburger-menu {
+                display: block;
+            }
+
+            nav ul li a {
+                display: none;
+            }
+
+            .banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-text {
+                margin-bottom: 20px;
+            }
+
+            .banner img {
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+
+            .case-study-content {
+                flex-direction: column;
+            }
+
+            .case-study-container {
+                padding: 0 20px;
+            }
+
+            .two-columns img {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            footer {
+                padding: 20px 20px;
+            }
+
+            .table-of-contents {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li class="logo"><a href="index.html">Ridwan</a></li>
+                        <li class="desktop-only"><a href="https://docs.google.com/document/d/1-wRVz-llb5nGAWiu1UPl7-VWqBf_VL8gwN9wM1sEEDQ/edit?usp=sharing">Resumé</a></li>
+                        <li class="desktop-only"><a href="https://www.linkedin.com/in/ridwanhoque/">LinkedIn</a></li>
+                        <li class="chat-button"><a href="#">Let’s chat</a></li>
+                        <li class="mobile-only hamburger-menu">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0F0F0F">
+                                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="image-banner"></div>
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h1>National Rostering Service Case Study</h1>
+                    <div class="case-study-meta">
+                        <span>Category: Civil Engineering</span>
+                        <span>Published: July 23, 2024</span>
+                    </div>
+                    <div class="divider"></div>
+                    <p>The National Rostering Service was established to provide comprehensive scheduling and assignment solutions for Traffic Officers across the UK. Due to increasing instability and rising costs, National Highways identified the need to replace the existing system. This led to the development of a new, more efficient system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="case-study-content">
+                <aside class="table-of-contents">
+                    <h2>Contents</h2>
+                    <ul>
+                        <li><a href="#background">1. Background</a></li>
+                        <li><a href="#team-composition">2. Team Composition</a></li>
+                        <li><a href="#discovery-phase">3. Discovery Phase</a></li>
+                        <li><a href="#workshop-insights">4. Workshop Insights</a></li>
+                        <li><a href="#discovered-insights">5. Discovered Insights</a></li>
+                        <li><a href="#defining-requirements">6. Defining Requirements</a></li>
+                        <li><a href="#prototyping-phase">7. Prototyping Phase</a></li>
+                        <li><a href="#current-impact">8. Current Impact</a></li>
+                        <li><a href="#future-impact">9. Future Impact</a></li>
+                    </ul>
+                </aside>
+                <div class="case-study-container">
+                    <h2 id="background">1. Background</h2>
+                    <p>The National Rostering Service was established to provide comprehensive scheduling and assignment solutions for Traffic Officers across the UK. Due to increasing instability and rising costs, National Highways identified the need to replace the existing system. This led to the development of a new, more efficient system.</p>
+                    <img src="assets/Growing Feature Costs ▲.webp" alt="Traffic Officers">
+                    <div class="image-caption">Traffic Officers across the UK</div>
+                    
+                    <h2 id="team-composition">2. Team Composition</h2>
+                    <p>The project team comprised a Senior Designer, a Designer, and several Graduates. They collaborated closely with the Delivery and Business Analyst teams to ensure a holistic approach to the project.</p>
+                    
+
+                    <h2 id="discovery-phase">3. Discovery Phase</h2>
+                    <p>During the discovery phase, the team focused on identifying user groups and gathering quantitative data on system usage. A series of user interviews were conducted, involving both on-road staff and those responsible for scheduling shifts. These interviews provided valuable insights and formed a repository for future projects.</p>
+                    <p>The team brainstormed key insights they wanted to gather and devised questions that would yield the most useful information. This approach allowed new researchers to adapt during sessions and adjust their language according to the audience.</p>
+                    <p>A workshop was led with stakeholders from across the country to align on challenging topics. A prioritisation workshop was also held, where agreements were made on key points and solutions. Possible success measures were identified, and user requirements were defined, leading to the development of a prototype.</p>
+                    <img src="assets/Insights _ Questions.webp" alt="User Interviews">
+                    <div class="image-caption">Conducting user interviews during the discovery phase</div>
+                    
+                    <h2 id="workshop-insights">4. Workshop Insights</h2>
+                    <p>From the insights gathered, the team produced a set of user stories to present to stakeholders nationwide. This ensured everyone was on the same page and could empathise with the users’ needs. During the workshop, challenging topics were addressed, and a set of prioritised pains and solutions were agreed upon. Workshop brought upon clusters of deep insights but it was difficult to pull value from them.</p>
+                    <img src="assets/Too much.webp" alt="Workshop Insights">
+                    <div class="image-caption">Grouped infromation into more managable chunks, enabling decision making.</div>
+                    
+
+                    <h2 id="discovered-insights">5. Discovered Insights</h2>
+                    <p>The initial service was an off-the-shelf solution customised to meet National Highways’ needs. However, these bespoke features became unmanageable, and as the service required more changes, costs escalated. Users experienced up to seven logouts per day due to performance demands on their machines. Data reporting was inaccurate due to multiple sources of truth, resulting in an increasing number of support tickets. To navigate the issue of inaccurate data, users created alternative solutions, adding to the collective pain.</p>
+                    <img src="assets/High CPU.webp" alt="Too Much">
+                    <div class="image-caption">Workshops outputted clusters of information.</div>
+                   
+                    
+                    <h2 id="defining-requirements">6. Defining Requirements</h2>
+                    <p>With the insights from the discovery phase, the team defined 177 prioritised requirements. Given the extensive list of requirements, it became clear that a prototype was necessary to convey the crucial nuances of the service. The team divided the tasks and prioritised accordingly.</p>
+                    
+                    <h2 id="prototyping and Development">7. Prototyping</h2>
+                    <p>The prototype served as the first iteration of the new service. The team collaborated to build out the user journeys, highlighting key areas to test and beginning the agile development process. This approach gave the project runway to handover to the next stage which was to an external team of developers, who shared our team principles and continuted to have us involved in the development process.</p>
+                    
+
+
+                    <h2 id="current-impact">8. Current Impact</h2>
+                    <p>The project equipped the team with a new understanding of how to phase projects and iterate services with a user-centered approach. A new repository was developed for users to voice their concerns, addressing the previous lack of touchpoints that resulted in frustrated users and an overloaded back-end team. By conducting interviews, analysing, synthesising, and prioritising pain points and solutions, the project team adopted an agile approach, enabling iterations and adjustments to meet user needs.</p>
+                
+                    
+                    <h2 id="future-impact">9. Future Impact</h2>
+                    <p>As the service is under development, success measures have been put in place</p>
+                    <h3>Reducing Support Tickets</h3> <p>This indicates that users can trust the data provided by the new system.</p>
+                    <h3>Reducing Key Task Completion Time</h3><p>Users have shown that current journeys are convoluted and frustrating. Enhancing efficiency in this area will boost overall service productivity.</p>
+                    <h3>Improving System Performance</h3><p>The new service will be developed on a platform that integrates seamlessly within the workplace of respective users. Additionally, user journeys have been simplified, reducing the need to constantly have tab opens - this proved to cause great strain on user devices.</p>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2>Ready to start a project?</h2>
+                <a href="#" class="footer-button">Let’s chat</a>
+                <div class="footer-divider"></div>
+                <div class="footer-email-container">
+                    <p class="footer-email">ridwanulhoque98@gmail.com</p>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="https://docs.google.com/document/d/1-wRVz-llb5nGAWiu1UPl7-VWqBf_VL8gwN9wM1sEEDQ/edit?usp=sharing">Resumé</a></li>
+                            <li><a href="https://www.linkedin.com/in/ridwanhoque/">LinkedIn</a></li>
+                            <li><a href="#">Let’s chat</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
